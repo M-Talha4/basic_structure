@@ -7,7 +7,7 @@ import 'route_transition.dart';
 
 class MyAppRouter {
   static final router = GoRouter(
-    initialLocation: '/',
+    initialLocation: '/${AppRoute.home}',
     routes: [
       GoRoute(
         name: AppRoute.home,

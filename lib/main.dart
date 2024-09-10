@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'src/features/home/pages/home_pages.dart';
+import 'package:loader_overlay/loader_overlay.dart';
+import 'src/common/constants/global_variables.dart';
+import 'src/router/routes.dart';
+import 'src/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return GlobalLoaderOverlay(
+      child: MaterialApp.router(
+        title: 'Basic Structure',
+        debugShowCheckedModeBanner: false,
+        scaffoldMessengerKey: scaffoldMessengerKey,
+        theme: AppTheme.instance.lightTheme,
+        routerDelegate: MyAppRouter.router.routerDelegate,
+        routeInformationParser: MyAppRouter.router.routeInformationParser,
+        routeInformationProvider: MyAppRouter.router.routeInformationProvider,
       ),
-      home: const HomePage(),
     );
   }
 }

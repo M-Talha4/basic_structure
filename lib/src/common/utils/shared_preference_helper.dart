@@ -1,84 +1,69 @@
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../constants/global_variables.dart';
 import '../constants/static_data.dart';
 
 class SharedPrefHelper {
-  // Singleton instance
-  static final SharedPrefHelper _instance = SharedPrefHelper._internal();
+  static late SharedPreferences prefs;
 
-  factory SharedPrefHelper() {
-    return _instance;
-  }
-
-  SharedPrefHelper._internal();
-  Future<void> getInitialValue() async {
+  static getInitialValue() async {
+    prefs = await SharedPreferences.getInstance();
     StaticData.isFirstTime = await getBool(isFirstTimeText) ?? true;
-    StaticData.isUser = await getBool(isUserText) ?? true;
+    StaticData.isTenant = await getBool(isTenantText) ?? true;
     StaticData.isAdmin = await getBool(isAdminText) ?? false;
     StaticData.isLoggedIn = await getBool(isLoggedInText) ?? false;
-
+    StaticData.landlordPropertyAdded =
+        await getBool(landlordPropertyAddedText) ?? false;
     StaticData.email = await getString(emailText) ?? '';
     StaticData.password = await getString(passwordText) ?? '';
   }
 
   // Save a string value
-  Future<void> saveString(String key, String value) async {
-    final prefs = await SharedPreferences.getInstance();
+  static saveString(String key, String value) async {
     await prefs.setString(key, value);
   }
 
   // Retrieve a string value
-  Future<String?> getString(String key) async {
-    final prefs = await SharedPreferences.getInstance();
+  static getString(String key) async {
     return prefs.getString(key);
   }
 
   // Save a boolean value
-  Future<void> saveBool(String key, bool value) async {
-    final prefs = await SharedPreferences.getInstance();
+  static saveBool(String key, bool value) async {
     await prefs.setBool(key, value);
   }
 
   // Retrieve a boolean value
-  Future<bool?> getBool(String key) async {
-    final prefs = await SharedPreferences.getInstance();
+  static getBool(String key) async {
     return prefs.getBool(key);
   }
 
   // Save an integer value
-  Future<void> saveInt(String key, int value) async {
-    final prefs = await SharedPreferences.getInstance();
+  static saveInt(String key, int value) async {
     await prefs.setInt(key, value);
   }
 
   // Retrieve an integer value
-  Future<int?> getInt(String key) async {
-    final prefs = await SharedPreferences.getInstance();
+  static getInt(String key) async {
     return prefs.getInt(key);
   }
 
   // Save a double value
-  Future<void> saveDouble(String key, double value) async {
-    final prefs = await SharedPreferences.getInstance();
+  static saveDouble(String key, double value) async {
     await prefs.setDouble(key, value);
   }
 
   // Retrieve a double value
-  Future<double?> getDouble(String key) async {
-    final prefs = await SharedPreferences.getInstance();
+  static getDouble(String key) async {
     return prefs.getDouble(key);
   }
 
   // Remove a value
-  Future<void> remove(String key) async {
-    final prefs = await SharedPreferences.getInstance();
+  static remove(String key) async {
     await prefs.remove(key);
   }
 
   // Clear all values
-  Future<void> clearAll() async {
-    final prefs = await SharedPreferences.getInstance();
+  static clearAll() async {
     await prefs.clear();
   }
 }

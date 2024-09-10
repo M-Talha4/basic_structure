@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'color_scheme.dart';
-import 'text_theme.dart';
+import 'widget_themes/app_bar_theme.dart';
+import 'widget_themes/app_text_theme.dart';
+import 'widget_themes/tabbar_theme.dart';
 
 class AppTheme {
   AppTheme._();
@@ -15,8 +17,10 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
+      appBarTheme: appBarTheme,
       colorScheme: colorSchemeLight,
-      textTheme: textTheme,
+      tabBarTheme: tabBarTheme,
+      textTheme: appTextTheme,
     );
   }
 }

@@ -36,8 +36,8 @@ class CustomButton extends StatelessWidget {
       splashColor: colorScheme(context).primary,
       onTap: onTap,
       child: Container(
-        width: isBig ? 360 : width ?? 120,
-        height: height ?? 45,
+        width: width ?? MediaQuery.sizeOf(context).width,
+        height: height ?? 50,
         decoration: BoxDecoration(
             boxShadow: const [
               // BoxShadow(

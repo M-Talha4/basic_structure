@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
-  static Color inputFieldClr = const Color(0xFF542164);
-  static Color subHeadingClr = const Color(0xFF546231);
-  static Color avatarBgClr = const Color(0xFF878311);
-  static Color textDisriptionClr = const Color(0xFF245696);
+  static Color appYellow = const Color(0xFFF1B207);
+  static Color appGreen = const Color(0xFF51AE46);
+  static Color appRed = const Color(0xFFDE3A3B);
+  static Color appBlue = const Color(0xFF185FA0);
 }
