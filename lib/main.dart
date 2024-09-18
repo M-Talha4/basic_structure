@@ -1,10 +1,15 @@
+import 'package:basic_structure/src/common/utils/api/api_helper.dart';
+import 'package:basic_structure/src/common/utils/shared_preference_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'src/common/constants/global_variables.dart';
 import 'src/router/routes.dart';
 import 'src/theme/theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPrefHelper.getInitialValue();
+  ApiHelper.initialize();
   runApp(const MyApp());
 }
 
