@@ -23,4 +23,11 @@ class AppTheme {
       textTheme: appTextTheme,
     );
   }
+
+  ThemeData get darkTheme {
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+    );
+  }
 }

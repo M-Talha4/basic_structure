@@ -1,4 +1,5 @@
 import 'package:basic_structure/src/features/home/pages/home_pages.dart';
+import 'package:basic_structure/src/features/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,8 +8,17 @@ import 'route_transition.dart';
 
 class MyAppRouter {
   static final router = GoRouter(
-    initialLocation: '/${AppRoute.home}',
+    initialLocation: '/${AppRoute.splash}',
     routes: [
+      GoRoute(
+        name: AppRoute.splash,
+        path: '/${AppRoute.splash}',
+        pageBuilder: (context, state) => buildPageWithFadeTransition<void>(
+          context: context,
+          state: state,
+          child: const SplashPage(),
+        ),
+      ),
       GoRoute(
         name: AppRoute.home,
         path: '/${AppRoute.home}',
@@ -34,5 +44,6 @@ class MyAppRouter {
 
 class AppRoute {
   static const String errorPage = 'error-page';
+  static const String splash = 'splash';
   static const String home = 'home';
 }

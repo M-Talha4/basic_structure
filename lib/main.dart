@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         scaffoldMessengerKey: scaffoldMessengerKey,
         theme: AppTheme.instance.lightTheme,
+        darkTheme: AppTheme.instance.darkTheme,
+        themeMode: ThemeMode.system,
         routerDelegate: MyAppRouter.router.routerDelegate,
         routeInformationParser: MyAppRouter.router.routeInformationParser,
         routeInformationProvider: MyAppRouter.router.routeInformationProvider,
